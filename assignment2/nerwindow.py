@@ -107,7 +107,7 @@ class WindowMLP(NNBase):
         # dJ/dU, dJ/db2
         self.grads.U += outer(delta1, h) + self.lreg * self.params.U
         self.grads.b2 += delta1
-        
+
         # dJ/dW, dJ/db1
         delta2 = self.params.U.T.dot(delta1) * (1 - h**2)
         self.grads.W += outer(delta2, x) + self.lreg * self.params.W
